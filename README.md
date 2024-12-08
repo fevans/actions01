@@ -4,3 +4,5 @@ It will run on ubuntu:latest
    Echo a msg to the console
    List all files in root dir
    And cat the contents of README.md file
+
+   Added some random text in the feature/event-testing branch
