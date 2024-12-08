@@ -1,0 +1,29 @@
+name: Exploring filters
+
+on:
+    workflow_dispatch:
+    push:  # branches and branches-ignore use are mutually exclusive
+       branches: 
+        - main
+        - '!feature/*'
+    #    branches-ignore:
+    #     - feature/*             # feature/add-music, feature/updateImages, feature/this, feature/that
+    #     - test/**               #. all folders and subfolders of test
+    
+    pull_request: 
+        types: 
+            - opened
+            - closed
+        paths-ignore:           # will execute workflow for all pull request not except for those changes that only include changes to README.md file
+            - README.md
+        branches:
+            - main              # will be triggered on pull request targetting the specific branches (in this case the main branch)
+jobs:
+    sayhello:
+        runs-on: ubuntu-latest
+        steps:
+            - name: echo
+              run: echo This workflow/job/step is executed for event ${{ github.event_name}}
+
+
+
